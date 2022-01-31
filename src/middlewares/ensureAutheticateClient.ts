@@ -21,13 +21,9 @@ export async function ensureAutheticateClient(
   const [, token] = authHeader.split(' ')
 
   try {
-    const { sub } = verify(
-      token,
-      'edc808a51c95d05db80e76a809361793',
-    ) as IPayload
+    const { sub } = verify(token, `${process.env.DELIVERYMA_KEY}`) as IPayload
 
     request.id_client = sub
-
     return next()
   } catch (error) {
     return response.status(401).json({
