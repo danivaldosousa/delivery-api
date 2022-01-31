@@ -24,7 +24,7 @@ export class AuthenticateDeliverymanUseCase {
       throw new Error('Username or password invalid')
     }
 
-    const token = await sign({ username }, `${process.env.DELIVERYMA_KEY}`, {
+    const token = await sign({ username }, `${process.env.DELIVERYMAN_KEY}`, {
       subject: deliveryman.id,
       expiresIn: '1d',
     })

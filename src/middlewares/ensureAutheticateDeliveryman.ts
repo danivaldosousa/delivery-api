@@ -21,7 +21,7 @@ export async function ensureAutheticateDeliveryman(
   const [, token] = authHeader.split(' ')
 
   try {
-    const { sub } = verify(token, `${process.env.DELIVERYMA_KEY}`) as IPayload
+    const { sub } = verify(token, `${process.env.DELIVERYMAN_KEY}`) as IPayload
 
     request.id_deliveryman = sub
 
